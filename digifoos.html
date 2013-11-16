@@ -1,0 +1,29 @@
+<head>
+    <title>DigiFoos</title>
+</head>
+
+<body>
+    {{> score}}
+</body>
+
+<template name="score">
+    <div class="score-container">
+        <div class="score-manipulation">
+            <div class="inc-black"></div>
+            <div class="inc-white"></div>
+            <div class="dec-black"></div>
+            <div class="dec-white"></div>
+        </div>
+        <div class="title"><span class="white">Digi</span><span class="black">Foos</span></div>
+        {{> black}}
+        {{> white}}
+    </div>
+</template>
+
+<template name="black">
+    <div class="circle black pull-left">{{score}}</div>
+</template>
+
+<template name="white">
+    <div class="circle white pull-left">{{score}}</div>
+</template>
