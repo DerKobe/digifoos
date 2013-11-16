@@ -12,9 +12,18 @@ currentGame = ->
 
 if Meteor.isClient
 
+  triggerGameOver = ->
+    if currentGame()?.black > currentGame()?.white
+      outcome = 'Black wins!'
+    else if currentGame()?.white > currentGame()?.black
+      outcome = 'White wins!'
+    else
+      outcome = "It's a tie!"
+    console.log "Games over! #{outcome}"
+
   Template.score.events(
-    'click button.takeBackLastGoal': ->
-      console.log 'The last goal did not count!'
+    'click      .game-over': triggerGameOver
+    'touchstart .game-over': triggerGameOver
   )
 
   Template.score.events(
@@ -22,6 +31,11 @@ if Meteor.isClient
     'click .dec-white': -> MessageQueue.insert team: 'white', action: 'dec'
     'click .inc-black': -> MessageQueue.insert team: 'black', action: 'inc'
     'click .dec-black': -> MessageQueue.insert team: 'black', action: 'dec'
+
+    'touchstart .inc-white': -> MessageQueue.insert team: 'white', action: 'inc'
+    'touchstart .dec-white': -> MessageQueue.insert team: 'white', action: 'dec'
+    'touchstart .inc-black': -> MessageQueue.insert team: 'black', action: 'inc'
+    'touchstart .dec-black': -> MessageQueue.insert team: 'black', action: 'dec'
   )
 
   Template.black.score = ->

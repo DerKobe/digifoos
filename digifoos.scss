@@ -2,21 +2,25 @@ body {
   background-image: url(background.png);
 }
 
-.pull-left {
-  float: left;
+.game-over {
+  width: 600px;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .score-manipulation {
   width: 600px;
   height: 420px;
   position: absolute;
-  top: 0;
+  top: 60px;
   left: 0;
 
   div {
     float: left;
     width: 300px;
-    height: 210px;
+    height: 180px;
   }
 }
 
@@ -36,6 +40,7 @@ body {
   }
 
   .circle {
+    float: left;
     border-radius: 300px;
     width: 300px;
     height: 300px;
