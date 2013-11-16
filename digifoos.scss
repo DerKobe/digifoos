@@ -2,33 +2,9 @@ body {
   background-image: url(background.png);
 }
 
-.game-over {
-  width: 600px;
-  height: 60px;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.score-manipulation {
-  width: 600px;
-  height: 420px;
-  position: absolute;
-  top: 60px;
-  left: 0;
-
-  div {
-    float: left;
-    width: 300px;
-    height: 180px;
-  }
-}
-
 .score-container {
   width: 600px;
-  margin-left: 50%;
-  position: relative;
-  left: -300px;
+  margin: 0 auto;
   margin-top: 100px;
 
   .title {
@@ -37,6 +13,28 @@ body {
     text-align: center;
     .black { color: black; }
     .white { color: white; }
+  }
+
+  .game-over {
+    width: 600px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .score-manipulation {
+    width: 600px;
+    height: 420px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+
+    div {
+      float: left;
+      width: 300px;
+      height: 180px;
+    }
   }
 
   .circle {
