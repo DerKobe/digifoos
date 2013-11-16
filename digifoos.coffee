@@ -6,7 +6,9 @@ MessageQueue = new Meteor.Collection('message_queue')
 # ===================
 
 currentGame = ->
-  Games.findOne( {}, { sort: { created_at: -1 } } )
+  game = Games.findOne( {}, { sort: { created_at: -1 } } )
+  document.title = "#{game.black}:#{game.white} Digifoos" if game? && Meteor.isClient
+  game
 
 if Meteor.isClient
 
