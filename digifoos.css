@@ -8,22 +8,23 @@ body {
   width: 600px;
   margin: 0 auto;
   margin-top: 100px;
+  position: relative;
 }
-/* line 10, digifoos.scss */
+/* line 11, digifoos.scss */
 .score-container .title {
   font-size: 60px;
   width: 600px;
   text-align: center;
 }
-/* line 14, digifoos.scss */
+/* line 15, digifoos.scss */
 .score-container .title .black {
   color: black;
 }
-/* line 15, digifoos.scss */
+/* line 16, digifoos.scss */
 .score-container .title .white {
   color: white;
 }
-/* line 18, digifoos.scss */
+/* line 19, digifoos.scss */
 .score-container .game-over {
   width: 600px;
   height: 60px;
@@ -31,7 +32,7 @@ body {
   top: 0;
   left: 0;
 }
-/* line 26, digifoos.scss */
+/* line 27, digifoos.scss */
 .score-container .score-manipulation {
   width: 600px;
   height: 420px;
@@ -39,13 +40,13 @@ body {
   top: 60px;
   left: 0;
 }
-/* line 33, digifoos.scss */
+/* line 34, digifoos.scss */
 .score-container .score-manipulation div {
   float: left;
   width: 300px;
   height: 180px;
 }
-/* line 40, digifoos.scss */
+/* line 41, digifoos.scss */
 .score-container .circle {
   float: left;
   border-radius: 300px;
@@ -56,12 +57,12 @@ body {
   font-weight: bold;
   padding-top: 40px;
 }
-/* line 50, digifoos.scss */
+/* line 51, digifoos.scss */
 .score-container .circle.black {
   color: #EEE;
   background-color: black;
 }
-/* line 54, digifoos.scss */
+/* line 55, digifoos.scss */
 .score-container .circle.white {
   color: #111;
   background-color: white;
