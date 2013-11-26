@@ -24,6 +24,15 @@ body {
     left: 0;
   }
 
+  #vs {
+    height: 182px;
+    width: 137px;
+    position: absolute;
+    top: 113px;
+    left: 228px;
+    background-image: url(vs.png);
+  }
+
   .score-manipulation {
     width: 600px;
     height: 420px;
@@ -40,7 +49,7 @@ body {
 
   .circle {
     float: left;
-    border-radius: 300px;
+    border-radius: 150px;
     width: 300px;
     height: 300px;
     text-align: center;

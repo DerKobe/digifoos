@@ -33,6 +33,15 @@ body {
   left: 0;
 }
 /* line 27, digifoos.scss */
+.score-container #vs {
+  height: 182px;
+  width: 137px;
+  position: absolute;
+  top: 113px;
+  left: 228px;
+  background-image: url(vs.png);
+}
+/* line 36, digifoos.scss */
 .score-container .score-manipulation {
   width: 600px;
   height: 420px;
@@ -40,16 +49,16 @@ body {
   top: 60px;
   left: 0;
 }
-/* line 34, digifoos.scss */
+/* line 43, digifoos.scss */
 .score-container .score-manipulation div {
   float: left;
   width: 300px;
   height: 180px;
 }
-/* line 41, digifoos.scss */
+/* line 50, digifoos.scss */
 .score-container .circle {
   float: left;
-  border-radius: 300px;
+  border-radius: 150px;
   width: 300px;
   height: 300px;
   text-align: center;
@@ -57,12 +66,12 @@ body {
   font-weight: bold;
   padding-top: 40px;
 }
-/* line 51, digifoos.scss */
+/* line 60, digifoos.scss */
 .score-container .circle.black {
   color: #EEE;
   background-color: black;
 }
-/* line 55, digifoos.scss */
+/* line 64, digifoos.scss */
 .score-container .circle.white {
   color: #111;
   background-color: white;
