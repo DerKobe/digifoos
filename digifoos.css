@@ -13,18 +13,19 @@ body {
 /* line 11, digifoos.scss */
 .score-container .title {
   font-size: 60px;
+  font-weight: 100;
   width: 600px;
   text-align: center;
 }
-/* line 15, digifoos.scss */
+/* line 16, digifoos.scss */
 .score-container .title .black {
   color: black;
 }
-/* line 16, digifoos.scss */
+/* line 17, digifoos.scss */
 .score-container .title .white {
   color: white;
 }
-/* line 19, digifoos.scss */
+/* line 20, digifoos.scss */
 .score-container .game-over {
   width: 600px;
   height: 60px;
@@ -32,7 +33,7 @@ body {
   top: 0;
   left: 0;
 }
-/* line 27, digifoos.scss */
+/* line 28, digifoos.scss */
 .score-container #vs {
   height: 182px;
   width: 137px;
@@ -41,7 +42,7 @@ body {
   left: 228px;
   background-image: url(vs.png);
 }
-/* line 36, digifoos.scss */
+/* line 37, digifoos.scss */
 .score-container .score-manipulation {
   width: 600px;
   height: 420px;
@@ -49,13 +50,13 @@ body {
   top: 60px;
   left: 0;
 }
-/* line 43, digifoos.scss */
+/* line 44, digifoos.scss */
 .score-container .score-manipulation div {
   float: left;
   width: 300px;
-  height: 180px;
+  height: 150px;
 }
-/* line 50, digifoos.scss */
+/* line 51, digifoos.scss */
 .score-container .circle {
   float: left;
   border-radius: 150px;
@@ -66,13 +67,30 @@ body {
   font-weight: bold;
   padding-top: 40px;
 }
-/* line 60, digifoos.scss */
+/* line 61, digifoos.scss */
 .score-container .circle.black {
   color: #EEE;
   background-color: black;
 }
-/* line 64, digifoos.scss */
+/* line 65, digifoos.scss */
 .score-container .circle.white {
   color: #111;
   background-color: white;
+}
+/* line 71, digifoos.scss */
+.score-container .players {
+  position: absolute;
+  top: 360px;
+  width: 300px;
+  text-align: center;
+  font-size: 40px;
+  line-height: 40px;
+  list-style: none;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+/* line 84, digifoos.scss */
+.score-container #white-players {
+  left: 300px;
 }

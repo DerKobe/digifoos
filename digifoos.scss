@@ -10,6 +10,7 @@ body {
 
   .title {
     font-size: 60px;
+    font-weight: 100;
     width: 600px;
     text-align: center;
     .black { color: black; }
@@ -43,7 +44,7 @@ body {
     div {
       float: left;
       width: 300px;
-      height: 180px;
+      height: 150px;
     }
   }
 
@@ -65,5 +66,22 @@ body {
       color: #111;
       background-color: white;
     }
+  }
+
+  .players {
+    position: absolute;
+    top: 360px;
+    width: 300px;
+    text-align: center;
+    font-size: 40px;
+    line-height: 40px;
+    list-style: none;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 10px black;
+  }
+
+  #white-players {
+    left: 300px;
   }
 }

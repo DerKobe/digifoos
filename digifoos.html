@@ -1,5 +1,5 @@
 <head>
-    <title>Digifoos</title>
+    <title>DigiFoos</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width,user-scalable=no">
 </head>
@@ -26,8 +26,18 @@
 
 <template name="black">
     <div class="circle black">{{score}}</div>
+    <ul id="black-players" class="players">
+        {{#each players}}
+            <li>{{name}}</li>
+        {{/each}}
+    </ul>
 </template>
 
 <template name="white">
     <div class="circle white">{{score}}</div>
+    <ul id="white-players" class="players">
+        {{#each players}}
+            <li>{{name}}</li>
+        {{/each}}
+    </ul>
 </template>

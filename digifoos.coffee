@@ -19,30 +19,30 @@ if Meteor.isClient
       outcome = 'White wins!'
     else
       outcome = "It's a tie!"
-    console.log "Games over! #{outcome}"
+    console?.log "Games over! #{outcome}"
 
   Template.score.events(
-    'click      .game-over': triggerGameOver
-    'touchstart .game-over': triggerGameOver
+    'touchstart .game-over, click .game-over': triggerGameOver
   )
 
   Template.score.events(
-    'click .inc-white': -> MessageQueue.insert team: 'white', action: 'inc'
-    'click .dec-white': -> MessageQueue.insert team: 'white', action: 'dec'
-    'click .inc-black': -> MessageQueue.insert team: 'black', action: 'inc'
-    'click .dec-black': -> MessageQueue.insert team: 'black', action: 'dec'
-
-    'touchstart .inc-white': -> MessageQueue.insert team: 'white', action: 'inc'
-    'touchstart .dec-white': -> MessageQueue.insert team: 'white', action: 'dec'
-    'touchstart .inc-black': -> MessageQueue.insert team: 'black', action: 'inc'
-    'touchstart .dec-black': -> MessageQueue.insert team: 'black', action: 'dec'
+    'touchstart .inc-white, click .inc-white': -> MessageQueue.insert team: 'white', action: 'inc'
+    'touchstart .dec-white, click .dec-white': -> MessageQueue.insert team: 'white', action: 'dec'
+    'touchstart .inc-black, click .inc-black': -> MessageQueue.insert team: 'black', action: 'inc'
+    'touchstart .dec-black, click .dec-black': -> MessageQueue.insert team: 'black', action: 'dec'
   )
 
   Template.black.score = ->
     currentGame()?.black
 
+  Template.black.players = ->
+    [{name: 'Adam'},{name: 'Eva'}]
+
   Template.white.score = ->
     currentGame()?.white
+
+  Template.white.players = ->
+    [{name: 'Dick'},{name: 'Doof'}]
 
 # ===================
 # --- S E R V E R ---
