@@ -1,0 +1,1 @@
+@MessageQueue = new Meteor.Collection('message_queue')
