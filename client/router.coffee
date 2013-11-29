@@ -1,3 +1,5 @@
 Meteor.Router.add
-  '/'            : 'gamesList'
+  '/'             : 'gamesList'
   '/current-game' : 'currentGame'
+  '/new-game'     : 'newGame'
+  '/ranking'      : 'ranking'

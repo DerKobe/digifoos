@@ -1,18 +1,11 @@
 <template name="gamesList">
     <table id="games" class="table">
-        <thead>
-            <tr>
-                <th>Schwarzes Team</th>
-                <th>Weißes Team</th>
-                <th></th>
-            </tr>
-        </thead>
         <tbody>
             {{#each games}}
                 <tr{{#if current}} class="current-game"{{/if}}>
                     <td width="40%"{{#if blackWins}} class="winner"{{/if}}><a href="#">{{blackPlayer1}}</a> & <a href="#">{{blackPlayer2}}</a></td>
-                    <td width="40%"{{#if whiteWins}} class="winner"{{/if}}><a href="#">{{whitePlayer1}}</a> & <a href="#">{{whitePlayer2}}</a></td>
                     <td width="20%">{{blackTeam.score}} : {{whiteTeam.score}}</td>
+                    <td width="40%"{{#if whiteWins}} class="winner"{{/if}}><a href="#">{{whitePlayer1}}</a> & <a href="#">{{whitePlayer2}}</a></td>
                 </tr>
             {{/each}}
         </tbody>

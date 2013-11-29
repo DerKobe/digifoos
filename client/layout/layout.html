@@ -1,0 +1,24 @@
+<head>
+    <title>DigiFoos</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+</head>
+
+<body>
+    {{> layout}}
+</body>
+
+<template name="layout">
+    <div id="wrapper">
+        <div class="title"><span class="white">Digi</span><span class="black">Foos</span></div>
+
+        <ul class="nav nav-tabs">
+            <li class="{{navClasses '/'}}"><a href="/">Spiele</a></li>
+            <li class="{{navClasses '/ranking'}}"><a href="/ranking">Tabelle</a></li>
+            <li class="{{navClasses '/current-game'}}"><a href="/current-game">Aktuelles Spiel</a></li>
+            <li class="{{navClasses '/new-game'}}"><a href="/new-game">Neues Spiel</a></li>
+        </ul>
+
+        {{renderPage}}
+    </div>
+</template>
