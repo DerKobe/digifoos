@@ -15,7 +15,13 @@
     position: absolute;
     top: 66px;
     left: 228px;
+
     background-image: url(/vs.png);
+    @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
+      background-image: url(/vs@2x.png);
+      background-size: 137px 182px;
+    }
   }
 
   .score-manipulation {
