@@ -5,11 +5,15 @@
 </head>
 
 <body>
+    {{> layout}}
+</body>
+
+<template name="layout">
     <div id="wrapper">
         <div class="title">
-            <a href="/"><span class="white">Digi</span><span class="black">Foos</span></a>
+            <a href="{{titleLink}}"><span class="white">Digi</span><span class="black">Foos</span></a>
         </div>
 
         {{renderPage}}
     </div>
-</body>
+</template>
