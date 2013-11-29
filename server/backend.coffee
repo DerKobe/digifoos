@@ -2,18 +2,17 @@ Meteor.startup ->
   setupMessageQueueApi()
   startMessageQueueObserver()
 
-  unless currentGame()?
+  unless Games.findOne()
     console.log 'No game were found. Creating one.'
     Games.insert(
-      created_at: new Date(),
-      white_team: {
-        score: 0,
+      created_at: new Date()
+      current: true
+      whiteTeam:
+        score: 0
         players: [ {name: 'Adam'},{name: 'Eva'} ]
-      },
-      black_team: {
-        score: 0,
+      blackTeam:
+        score: 0
         players: [ {name: 'Dick'},{name: 'Doof'} ]
-      }
     )
 
 #---------------------------------------------------------------------------------------
@@ -28,31 +27,32 @@ startMessageQueueObserver = ->
   MessageQueue.find().observe(
     added: (message)->
       invalidMessage = true # basic assumption: everything is bad
-      gameId = currentGame()._id
-      unless message.time?
+      currentGame = Games.findOne current: true
+
+      if currentGame && !message.time?
         switch message.team
           when 'white'
             switch message.action
               when 'inc'
-                Games.update _id: gameId, { $inc: { 'white_team.score': 1 } }
+                Games.update _id: currentGame._id, { $inc: { 'whiteTeam.score': 1 } }
                 invalidMessage = false
               when 'dec'
-                if currentGame().white_team.score > 0
-                  Games.update _id: gameId, { $inc: { 'white_team.score': -1 } }
+                if currentGame.whiteTeam.score > 0
+                  Games.update _id: currentGame._id, { $inc: { 'whiteTeam.score': -1 } }
                   invalidMessage = false
 
           when 'black'
             switch message.action
               when 'inc'
-                Games.update _id: gameId, { $inc: { 'black_team.score': 1 } }
+                Games.update _id: currentGame._id, { $inc: { 'blackTeam.score': 1 } }
                 invalidMessage = false
               when 'dec'
-                if currentGame().black_team.score > 0
-                  Games.update _id: gameId, { $inc: { 'black_team.score': -1 } }
+                if currentGame.blackTeam.score > 0
+                  Games.update _id: currentGame._id, { $inc: { 'blackTeam.score': -1 } }
                   invalidMessage = false
 
       if invalidMessage
         MessageQueue.remove message._id
       else
-        MessageQueue.update _id: message._id, { $set: { game: gameId, time: new Date() } }
+        MessageQueue.update _id: message._id, { $set: { game: currentGame._id, time: new Date() } }
   )

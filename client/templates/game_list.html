@@ -1,0 +1,20 @@
+<template name="gamesList">
+    <table id="games" class="table">
+        <thead>
+            <tr>
+                <th>Schwarzes Team</th>
+                <th>Weißes Team</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each games}}
+            <tr{{#if current}} class="current-game"{{/if}}>
+                <td><a href="#">{{blackPlayer1}}</a> & <a href="#">{{blackPlayer2}}</a></td>
+                <td><a href="#">{{whitePlayer1}}</a> & <a href="#">{{whitePlayer2}}</a></td>
+                <td>{{blackTeam.score}} : {{whiteTeam.score}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</template>

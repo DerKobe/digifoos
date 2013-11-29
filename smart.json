@@ -1,6 +1,6 @@
 {
   "packages": {
-    "foundation": {},
-    "collection-api": {}
+    "collection-api": {},
+    "router": {}
   }
 }
