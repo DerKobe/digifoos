@@ -1,4 +1,4 @@
-Template.gamesList.games = -> Games.find()
+Template.gamesList.games = -> Games.find({}, {sort: {created_at: -1}})
 
 Template.gamesList.whitePlayer1 = -> @whiteTeam.players[0].name
 Template.gamesList.whitePlayer2 = -> @whiteTeam.players[1].name
