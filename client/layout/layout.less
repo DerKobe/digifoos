@@ -50,36 +50,24 @@ body {
   }
 }
 
-#sign-in-out {
-  float: right;
-  cursor: pointer;
-  color: white;
-  font-weight: 100;
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+table.table {
+  font-size: 18px;
+  line-height: 1.4;
+  color: #f0f0f0;
+  text-shadow: 1px 1px 5px #444;
 
-  > div {
-    padding: 8px;
-    line-height: 20px;
-    border: 1px solid transparent;
-    -webkit-border-radius: 4px 4px 0 0;
-    -moz-border-radius: 4px 4px 0 0;
-    border-radius: 4px 4px 0 0;
-
-    #login-buttons-logout {
-      display: none;
-    }
+  a {
+    color: #f0f0f0;
+    text-shadow: 1px 1px 5px #444;
 
     &:hover {
-      border-color: #eee #eee #ddd;
-      background-color: #eeeeee;
-      color: black;
-
-      .login-display-name {
-        display: none;
-      }
-      #login-buttons-logout {
-        display: inline-block;
-      }
+      text-decoration: none;
+      color: white;
     }
+  }
+
+  td {
+    border-top: 0;
+    border-bottom: 1px solid #dddddd;
   }
 }

@@ -1,0 +1,9 @@
+<template name="playersList">
+    <table class="table">
+        {{#each players}}
+            <tr>
+                <td><a href="{{playerDetailsPath this}}">{{name}}</a></td>
+            </tr>
+        {{/each}}
+    </table>
+</template>

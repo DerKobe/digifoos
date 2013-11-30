@@ -2,19 +2,6 @@ Meteor.startup ->
   setupMessageQueueApi()
   startMessageQueueObserver()
 
-  unless Games.findOne()
-    console.log 'No game were found. Creating one.'
-    Games.insert(
-      created_at: new Date()
-      current: true
-      whiteTeam:
-        score: 0
-        players: [ {name: 'Adam'},{name: 'Eva'} ]
-      blackTeam:
-        score: 0
-        players: [ {name: 'Dick'},{name: 'Doof'} ]
-    )
-
 #---------------------------------------------------------------------------------------
 setupMessageQueueApi = ->
   collectionApi = new CollectionAPI(authToken: '123')

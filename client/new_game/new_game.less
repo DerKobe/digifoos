@@ -1,0 +1,59 @@
+#line-up {
+  text-align: center;
+
+  .teams {
+    width:  300px;
+    height: 100px;
+    float: left;
+    margin: 10px;
+    border-radius: 50px;
+    font-size: 30px;
+    line-height: 1.2;
+    padding-top: 20px;
+
+    > div {
+      position: relative;
+      top: 5px;
+
+      a:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  #black-team {
+    margin-left: 40px;
+    background-color: rgba(0,0,0,0.75);
+    a {
+      color: white;
+      &:hover { color: red; }
+    }
+  }
+
+  #white-team {
+    background-color: rgba(255,255,255,0.75);
+    a {
+      color: black;
+      &:hover { color: red; }
+    }
+  }
+
+  #start-the-game {
+    height: 91px;
+    width: 68px;
+    position: absolute;
+    top: 118px;
+    left: 314px;
+    background: url(/vs.png) no-repeat;
+    background-size: 68px 91px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+#player-pool table td {
+  text-align: center;
+  vertical-align: middle;
+}
