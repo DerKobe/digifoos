@@ -1,4 +1,4 @@
-Template.gamesList.games = -> Games.find({new:{'$ne':true}}, {sort: {created_at: -1}}).fetch()
+Template.gamesList.games = -> Games.find({new:{$ne:true}}, {sort: {created_at: -1}}).fetch()
 
 Template.gamesList.whitePlayer1 = -> @whiteTeam.players[0]
 Template.gamesList.whitePlayer2 = -> @whiteTeam.players[1]

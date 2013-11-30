@@ -6,13 +6,11 @@
 
     winners = (players, goalsMade, goalsAgainst)->
       _.each players, (player)->
-        _.each [{ score: 10 }, { gamesWon: 1 }, { goalsMade: goalsMade }, { goalsAgainst: goalsAgainst }], (obj)->
-          Players.update player._id, $inc: obj
+        Players.update player._id, $inc: { score: 10, gamesWon: 1, goalsMade: goalsMade, goalsAgainst: goalsAgainst }
 
     losers = (players, goalsMade, goalsAgainst)->
       _.each players, (player)->
-        _.each [{ score: -10 }, { gamesLost: 1 }, { goalsMade: goalsMade }, { goalsAgainst: goalsAgainst }], (obj)->
-          Players.update player._id, $inc: obj
+        Players.update player._id, $inc: { score: -10, gamesLost: 1, goalsMade: goalsMade, goalsAgainst: goalsAgainst }
 
     if game.blackTeam.score > game.whiteTeam.score
       winners game.blackTeam.players, game.blackTeam.score, game.whiteTeam.score
