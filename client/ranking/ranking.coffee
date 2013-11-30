@@ -1,6 +1,6 @@
 Template.ranking.players = ->
   players = []
-  _.each Players.find({}, {sort: {score:-1}}).fetch(), (player, i)->
+  _.each Players.find({}, {sort: {score:-1, gamesWon: -1, gamesLost: 1, goalsMade: -1, goalsAgainst: 1}}).fetch(), (player, i)->
     player.rank = i + 1
     players.push player
   players

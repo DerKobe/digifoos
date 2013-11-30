@@ -14,32 +14,32 @@ startMessageQueueObserver = ->
   MessageQueue.find().observe(
     added: (message)->
       invalidMessage = true # basic assumption: everything is bad
-      currentGame = Games.findOne current: true
+      game = Games.findOne current: true
 
-      if currentGame && !message.time?
+      if game && !message.time?
         switch message.team
           when 'white'
             switch message.action
               when 'inc'
-                Games.update _id: currentGame._id, { $inc: { 'whiteTeam.score': 1 } }
+                Games.update _id: game._id, { $inc: { 'whiteTeam.score': 1 } }
                 invalidMessage = false
               when 'dec'
-                if currentGame.whiteTeam.score > 0
-                  Games.update _id: currentGame._id, { $inc: { 'whiteTeam.score': -1 } }
+                if game.whiteTeam.score > 0
+                  Games.update _id: game._id, { $inc: { 'whiteTeam.score': -1 } }
                   invalidMessage = false
 
           when 'black'
             switch message.action
               when 'inc'
-                Games.update _id: currentGame._id, { $inc: { 'blackTeam.score': 1 } }
+                Games.update _id: game._id, { $inc: { 'blackTeam.score': 1 } }
                 invalidMessage = false
               when 'dec'
-                if currentGame.blackTeam.score > 0
-                  Games.update _id: currentGame._id, { $inc: { 'blackTeam.score': -1 } }
+                if game.blackTeam.score > 0
+                  Games.update _id: game._id, { $inc: { 'blackTeam.score': -1 } }
                   invalidMessage = false
 
       if invalidMessage
         MessageQueue.remove message._id
       else
-        MessageQueue.update _id: message._id, { $set: { game: currentGame._id, time: new Date() } }
+        MessageQueue.update _id: message._id, { $set: { game: game._id, time: new Date() } }
   )

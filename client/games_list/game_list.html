@@ -1,33 +1,40 @@
 <template name="gamesList">
-    <table id="games" class="table">
-        <tbody>
-            {{#each games}}
-                <tr{{#if current}} class="current-game"{{/if}}>
-                    <td width="40%"{{#if blackWins}} class="winner"{{/if}}>
-                        {{#with blackPlayer1}}
-                            <a href="{{playerDetailsPath this}}">{{name}}</a>
-                        {{/with}}
-                        {{#if blackPlayer2}}
-                            /
-                            {{#with blackPlayer2}}
+    {{#if games}}
+        <table id="games" class="table">
+            <tbody>
+                {{#each games}}
+                    <tr{{#if current}} class="current-game"{{/if}}>
+                        <td width="40%"{{#if blackWins}} class="winner"{{/if}}>
+                            {{#with blackPlayer1}}
                                 <a href="{{playerDetailsPath this}}">{{name}}</a>
                             {{/with}}
-                        {{/if}}
-                    </td>
-                    <td width="20%" class="score">{{blackTeam.score}} : {{whiteTeam.score}}</td>
-                    <td width="40%"{{#if whiteWins}} class="winner"{{/if}}>
-                        {{#with whitePlayer1}}
-                            <a href="{{playerDetailsPath this}}">{{name}}</a>
-                        {{/with}}
-                        {{#if whitePlayer2}}
-                            /
-                            {{#with whitePlayer2}}
+                            {{#if blackPlayer2}}
+                                /
+                                {{#with blackPlayer2}}
+                                    <a href="{{playerDetailsPath this}}">{{name}}</a>
+                                {{/with}}
+                            {{/if}}
+                        </td>
+                        <td width="20%" class="score">{{blackTeam.score}} : {{whiteTeam.score}}</td>
+                        <td width="40%"{{#if whiteWins}} class="winner"{{/if}}>
+                            {{#with whitePlayer1}}
                                 <a href="{{playerDetailsPath this}}">{{name}}</a>
                             {{/with}}
-                        {{/if}}
-                    </td>
-                </tr>
-            {{/each}}
-        </tbody>
-    </table>
+                            {{#if whitePlayer2}}
+                                /
+                                {{#with whitePlayer2}}
+                                    <a href="{{playerDetailsPath this}}">{{name}}</a>
+                                {{/with}}
+                            {{/if}}
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <div id="no-games-found">
+            <p>Keine Spiele gefunden!</p>
+            <a href="/new-game">Spiel anlegen</a>
+        </div>
+    {{/if}}
 </template>
