@@ -1,5 +1,15 @@
 <template name="playerDetails">
     {{#with currentPlayer}}
-        {{name}}
+        <h1>{{name}}</h1>
+        <div class="progress player-progress">
+            <div class="bar bar-success" style="width: {{percentageWon}}%;"></div>
+            <div class="bar bar-danger" style="width: {{percentageLost}}%;"></div>
+        </div>
+        <dl class="dl-horizontal player-statistics">
+            <dt>Rang</dt><dd class="rank">{{rank}}</dd>
+            <dt>Punkte</dt><dd>{{score}}</dd>
+            <dt>Gewonnen</dt><dd class="games-won"><span class="games-count">{{gamesWon}}</span><span class="percentage">{{percentageWon}}%</span></dd>
+            <dt>Verloren</dt><dd class="games-lost"><span class="games-count">{{gamesLost}}</span><span class="percentage">{{percentageLost}}%</span></dd>
+        </dl>
     {{/with}}
 </template>

@@ -1,8 +1,5 @@
 <template name="currentGame">
-    <div id="no-current-game" class="alert alert-info{{#if game}} hide{{/if}}">
-        Zur Zeit läuft kein Spiel
-    </div>
-    <div id="score-container" {{#unless game}}class="hide"{{/unless}}>
+    <div id="score-container">
         <div class="score-manipulation">
             <div class="inc-black"></div>
             <div class="inc-white"></div>

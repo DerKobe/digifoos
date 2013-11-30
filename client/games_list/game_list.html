@@ -14,7 +14,7 @@
                             {{/with}}
                         {{/if}}
                     </td>
-                    <td width="20%">{{blackTeam.score}} : {{whiteTeam.score}}</td>
+                    <td width="20%" class="score">{{blackTeam.score}} : {{whiteTeam.score}}</td>
                     <td width="40%"{{#if whiteWins}} class="winner"{{/if}}>
                         {{#with whitePlayer1}}
                             <a href="{{playerDetailsPath this}}">{{name}}</a>

@@ -1,0 +1,49 @@
+h1 {
+  text-shadow: 2px 2px 7px #333;
+}
+
+.player-progress {
+  background: none;
+}
+
+.player-statistics {
+  dt,dd {
+    font-weight: 100;
+    line-height: 40px;
+  }
+
+  dt {
+    font-size: 24px;
+    color: black;
+    text-shadow: 1px 1px 7px rgba(0,0,0,0.2);
+  }
+
+  dd {
+    font-size: 30px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+
+    &.games-won {
+      text-shadow: 1px 1px 1px rgba(0,255,0,0.4);
+    }
+
+    &.games-lost {
+      text-shadow: 1px 1px 1px rgba(255,0,0,0.4);
+    }
+
+    &.rank {
+      font-weight: normal;
+    }
+
+    .games-count {
+      display: inline-block;
+      width: 60px;
+    }
+
+    .percentage {
+      position: relative;
+      top: -4px;
+      font-size: 18px;
+      margin-left: 20px;
+    }
+  }
+}

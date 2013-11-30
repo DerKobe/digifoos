@@ -1,0 +1,32 @@
+#ranking-table {
+  th {
+    font-weight: 100;
+    background-color: rgba(0,0,0,0.5);
+
+    &.goals-made, &.goals-against {
+      font-size: 14px;
+    }
+  }
+
+  td {
+    &.percentage {
+      font-size: 14px;
+    }
+
+    &.won {
+      text-shadow: 1px 1px 1px rgba(0,255,0,0.4);
+    }
+
+    &.lost {
+      text-shadow: 1px 1px 1px rgba(255,0,0,0.4);
+    }
+  }
+
+  th,td {
+    text-align: center;
+
+    &.name {
+      text-align: left;
+    }
+  }
+}
