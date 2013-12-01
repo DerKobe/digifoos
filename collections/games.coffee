@@ -19,10 +19,12 @@
     diffLoser  = elo(score(loser.players), score(winner.players), 0) - score(loser.players)
 
     _.each winner.players, (player)->
-      Players.update player._id, $inc: { score: diffWinner, gamesWon: 1, goalsMade: winner.score, goalsAgainst: loser.score }
+      score = Players.findOne(player._id).score + diffWinner
+      Players.update player._id, $inc: { score: diffWinner, gamesWon: 1, goalsMade: winner.score, goalsAgainst: loser.score }, $push: { scoreHistory: score }
 
     _.each loser.players, (player)->
-      Players.update player._id, $inc: { score: diffLoser, gamesLost: 1, goalsMade: loser.score, goalsAgainst: winner.score }
+      score = Players.findOne(player._id).score + diffLoser
+      Players.update player._id, $inc: { score: diffLoser, gamesLost: 1, goalsMade: loser.score, goalsAgainst: winner.score }, $push: { scoreHistory: score }
 
     if game.blackTeam.score > game.whiteTeam.score
       Games.update game._id, $unset: { current: 1 }, $set: { 'whiteTeam.scoreDiff': diffLoser, 'blackTeam.scoreDiff': diffWinner }
