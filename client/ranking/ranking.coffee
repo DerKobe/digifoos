@@ -11,6 +11,9 @@ Template.ranking.helpers(
 
   percentageLost: ->
     percentage @gamesLost, (@gamesWon + @gamesLost)
+
+  gamesPlayer: ->
+    @gamesWon + @gamesLost
 )
 
 percentage = (x,sum)->

@@ -7,3 +7,7 @@ Template.gamesList.blackPlayer2 = -> @blackTeam.players[1]
 
 Template.gamesList.blackWins = -> !@current && @blackTeam.score > @whiteTeam.score
 Template.gamesList.whiteWins = -> !@current && @blackTeam.score < @whiteTeam.score
+
+Template.gamesList.helpers(
+  plusMinus: (score)-> if score > 0 then "+#{score}" else score
+)
