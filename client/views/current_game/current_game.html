@@ -1,25 +1,51 @@
 <template name="currentGame">
     <div id="score-container">
-        <div class="score-manipulation">
-            <div class="inc-black"></div>
-            <div class="inc-white"></div>
-            <div class="dec-black"></div>
-            <div class="dec-white"></div>
-        </div>
-        <div id="vs"></div>
+        {{#with game}}
+            {{#if regularOrder}}
+                <div class="score-manipulation">
+                    <div class="inc-black"></div>
+                    <div class="inc-white"></div>
+                    <div class="dec-black"></div>
+                    <div class="dec-white"></div>
+                </div>
+                <div id="vs"></div>
 
-        <div class="circle black">{{game.blackTeam.score}}</div>
-        <ul id="black-players" class="players">
-            {{#each game.blackTeam.players}}
-                <li>{{name}}</li>
-            {{/each}}
-        </ul>
+                <div class="circle black">{{blackTeam.score}}</div>
+                <ul id="black-players" class="players">
+                    {{#each blackTeam.players}}
+                        <li>{{name}}</li>
+                    {{/each}}
+                </ul>
 
-        <div class="circle white">{{game.whiteTeam.score}}</div>
-        <ul id="white-players" class="players">
-            {{#each game.whiteTeam.players}}
-                <li>{{name}}</li>
-            {{/each}}
-        </ul>
+                <div class="circle white">{{whiteTeam.score}}</div>
+                <ul id="white-players" class="players right-players">
+                    {{#each whiteTeam.players}}
+                        <li>{{name}}</li>
+                    {{/each}}
+                </ul>
+            {{else}}
+                <div class="score-manipulation">
+                    <div class="inc-white"></div>
+                    <div class="inc-black"></div>
+                    <div class="dec-white"></div>
+                    <div class="dec-black"></div>
+                </div>
+                <div id="vs"></div>
+
+                <div class="circle white">{{whiteTeam.score}}</div>
+                <ul id="white-players" class="players">
+                    {{#each whiteTeam.players}}
+                        <li>{{name}}</li>
+                    {{/each}}
+                </ul>
+
+                <div class="circle black">{{blackTeam.score}}</div>
+                <ul id="black-players" class="players right-players">
+                    {{#each blackTeam.players}}
+                        <li>{{name}}</li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        {{/with}}
     </div>
 </template>

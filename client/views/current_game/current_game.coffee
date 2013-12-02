@@ -1,4 +1,11 @@
 #======================================================================================
+Template.layout.events(
+  'click .title, touchstart .title': ->
+    if document.location.pathname == '/current-game'
+      newGame = Games.findOne({current: true}, {fields: {regularOrder: 1}})
+      Games.update newGame._id, $set: { regularOrder: !newGame.regularOrder }
+)
+
 Template.currentGame.events
   'touchstart .inc-white, click .inc-white': -> MessageQueue.insert team: 'white', action: 'inc'
   'touchstart .dec-white, click .dec-white': -> MessageQueue.insert team: 'white', action: 'dec'

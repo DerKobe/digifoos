@@ -3,9 +3,7 @@ Meteor.Router.add
 
   '/current-game': 'currentGame'
 
-  '/new-game'     :
-    to: 'newGame'
-    and: -> Meteor.call('newGame')
+  '/new-game': 'newGame'
 
   '/ranking': 'ranking'
 

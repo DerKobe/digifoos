@@ -4,8 +4,8 @@
   score = (players)->
     (_.reduce players, ((sum,p)-> sum + Players.findOne(p._id).score), 0) / players.length
 
-  elo = (ra, rb, k)->
-    ra + Math.round(15*(k-(1/(1+Math.pow(10,(rb-ra)/400)))))
+  elo = (ra, rb, w, f = 150)->
+    ra + Math.round(15*(w-(1/(1+Math.pow(10,(rb-ra)/f)))))
 
   if game.current?
     if game.blackTeam.score > game.whiteTeam.score

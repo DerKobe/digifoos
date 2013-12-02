@@ -1,3 +1,10 @@
+Template.layout.events(
+  'click .title, touchstart .title': ->
+    if document.location.pathname == '/new-game'
+      newGame = Games.findOne({new: true}, {fields: {regularOrder: 1}})
+      Games.update newGame._id, $set: { regularOrder: !newGame.regularOrder }
+)
+
 Template.newGame.events(
   'touchstart #start-the-game, click #start-the-game': ->
     game = Games.findOne(new: true)
@@ -27,14 +34,20 @@ Template.newGame.events(
       Games.update(game_id, { $pull: {'blackTeam.players': {_id: player_id} } } )
 )
 
+#===================================================================================
 Template.newGame.newGame = ->
-  Games.findOne new: true
+  if Games.findOne(current: true)?
+    Meteor.Router.to '/current-game'
+  else
+    Meteor.call('newGame')
+    Games.findOne new: true
 
 Template.newGame.players = ->
   Players.find({}, {sort:{name:1}})
 
+#===================================================================================
 Template.newGame.helpers(
-  'notAlreadyOnATeam': ->
+  notAlreadyOnATeam: ->
     game = Games.findOne(new: true)
     if game?
       white = game.whiteTeam.players
@@ -44,10 +57,13 @@ Template.newGame.helpers(
     else
       false
 
-  'teamIsFull': (team)->
+  teamIsFull: (team)->
     game = Games.findOne(new: true)
     if game?
       game["#{team}Team"].players.length == 2
     else
       true
+
+  regularOrder: ->
+    Games.findOne(new: true).regularOrder
 )

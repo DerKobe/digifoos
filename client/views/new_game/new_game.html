@@ -2,16 +2,29 @@
     <div id="line-up">
         {{#with newGame}}
             <div id="start-the-game"></div>
-            <div id="black-team" class="teams">
-                {{#each newGame.blackTeam.players}}
-                    <div><a href="#remove" data-player_id="{{_id}}">{{name}}</a></div>
-                {{/each}}
-            </div>
-            <div id="white-team" class="teams">
-                {{#each newGame.whiteTeam.players}}
-                    <div><a href="#remove" data-player_id="{{_id}}">{{name}}</a></div>
-                {{/each}}
-            </div>
+            {{#if regularOrder}}
+                <div id="black-team" class="teams first-team">
+                    {{#each blackTeam.players}}
+                        <div><a href="#remove" data-player_id="{{_id}}">{{name}}</a></div>
+                    {{/each}}
+                </div>
+                <div id="white-team" class="teams">
+                    {{#each whiteTeam.players}}
+                        <div><a href="#remove" data-player_id="{{_id}}">{{name}}</a></div>
+                    {{/each}}
+                </div>
+            {{else}}
+                <div id="white-team" class="teams first-team">
+                    {{#each whiteTeam.players}}
+                        <div><a href="#remove" data-player_id="{{_id}}">{{name}}</a></div>
+                    {{/each}}
+                </div>
+                <div id="black-team" class="teams">
+                    {{#each blackTeam.players}}
+                        <div><a href="#remove" data-player_id="{{_id}}">{{name}}</a></div>
+                    {{/each}}
+                </div>
+            {{/if}}
         {{/with}}
     </div>
 
@@ -22,17 +35,29 @@
                     {{#if notAlreadyOnATeam}}
                         <tr>
                             <td width="33%">
-                                {{#unless teamIsFull 'black'}}
-                                    <button class="btn btn-inverse" data-team="black" data-player_id="{{_id}}" data-player_name="{{name}}">Schwarzes Team</button>
-                                {{/unless}}
+                                {{#if regularOrder}}
+                                    {{#unless teamIsFull 'black'}}
+                                        <button class="btn btn-inverse" data-team="black" data-player_id="{{_id}}" data-player_name="{{name}}">Schwarzes Team</button>
+                                    {{/unless}}
+                                {{else}}
+                                    {{#unless teamIsFull 'white'}}
+                                        <button class="btn" data-team="white" data-player_id="{{_id}}" data-player_name="{{name}}">Weißes Team</button>
+                                    {{/unless}}
+                                {{/if}}
                             </td>
                             <td width="33%">
                                 {{name}}
                             </td>
                             <td width="33%">
-                                {{#unless teamIsFull 'white'}}
-                                    <button class="btn" data-team="white" data-player_id="{{_id}}" data-player_name="{{name}}">Weißes Team</button>
-                                {{/unless}}
+                                {{#if regularOrder}}
+                                    {{#unless teamIsFull 'white'}}
+                                        <button class="btn" data-team="white" data-player_id="{{_id}}" data-player_name="{{name}}">Weißes Team</button>
+                                    {{/unless}}
+                                {{else}}
+                                    {{#unless teamIsFull 'black'}}
+                                        <button class="btn btn-inverse" data-team="black" data-player_id="{{_id}}" data-player_name="{{name}}">Schwarzes Team</button>
+                                    {{/unless}}
+                                {{/if}}
                             </td>
                         </tr>
                     {{/if}}

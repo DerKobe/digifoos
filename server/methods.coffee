@@ -4,6 +4,7 @@ Meteor.methods(
     unless game
       Games.insert(
         new: true,
+        regularOrder: true,
         whiteTeam: {
           players: []
           score: 0
