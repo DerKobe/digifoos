@@ -12,7 +12,7 @@ Template.playerDetails.helpers(
     @gamesWon + @gamesLost
 
   rank: ->
-    players = Players.find({}, {sort: {score:-1}})
+    players = Players.find({$or: [{gamesWon:{$gt: 0}}, {gamesLost:{$gt:0}}]}, {sort: {score:-1}})
     rank = 'N/A'
     _.each players.fetch(), (player,i)->
       rank = i + 1 if player._id == Session.get('currentPlayerId')
