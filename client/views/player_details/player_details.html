@@ -12,14 +12,18 @@
             <dt>Gewonnen</dt><dd class="games-won"><span class="games-count">{{gamesWon}}</span><span class="percentage">{{percentageWon}}%</span></dd>
             <dt>Verloren</dt><dd class="games-lost"><span class="games-count">{{gamesLost}}</span><span class="percentage">{{percentageLost}}%</span></dd>
             {{#if bestBuddy}}
-                {{#with bestBuddy}}
-                    <dt class="best-buddy">Am erfolgreichsten mit</dt><dd class="best-buddy"><a href="{{playerDetailsPath this}}">{{name}}</a></dd>
-                {{/with}}
+                <dt class="best-buddy">Am erfolgreichsten mit</dt><dd class="best-buddy">
+                    {{#each bestBuddy}}
+                        <a href="{{playerDetailsPath this}}">{{name}}</a>
+                    {{/each}}
+                </dd>
             {{/if}}
             {{#if worstNightmare}}
-                {{#with worstNightmare}}
-                    <dt class="worst-nightmare">Schlimmster Albtraum</dt><dd class="worst-nightmare"><a href="{{playerDetailsPath this}}">{{name}}</a></dd>
-                {{/with}}
+                <dt class="worst-nightmare">Schlimmster Albtraum</dt><dd class="worst-nightmare">
+                    {{#each worstNightmare}}
+                        <a href="{{playerDetailsPath this}}">{{name}}</a>
+                    {{/each}}
+                </dd>
             {{/if}}
         </dl>
         <canvas id="player-chart" width="700" height="200" data-score-history="{{scoreHistory}}"></canvas>

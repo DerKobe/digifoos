@@ -22,18 +22,26 @@ Template.playerDetails.helpers(
     JSON.stringify(@scoreHistory)
 
   worstNightmare: ->
-    getPlayerWithHighestCountFor @lostAgainstCount
+    getPlayersWithHighestCountFor @lostAgainstCount
 
   bestBuddy: ->
-    getPlayerWithHighestCountFor @winningTeamBuddyCount
+    getPlayersWithHighestCountFor @winningTeamBuddyCount
 )
 
-getPlayerWithHighestCountFor = (array)->
+getPlayersWithHighestCountFor = (array)->
   count = 0
-  id = false
+  ids = []
+
+  _.each array, (x)->
+    count = x if x > count
+
   _.each array, (x,x_id)->
-    id = x_id if x > count
-  if id then Players.findOne(id) else false
+    ids.push x_id if x == count
+
+  if ids.length > 0
+    Players.find(_id: {$in: ids})
+  else
+    false
 
 percentage = (x,sum)->
   if sum == 0
