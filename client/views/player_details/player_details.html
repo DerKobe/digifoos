@@ -2,8 +2,8 @@
     {{#with currentPlayer}}
         <h1>{{name}}</h1>
         <div class="progress player-progress">
-            <div class="bar bar-success" style="width: {{percentageWon}}%;"></div>
-            <div class="bar bar-danger" style="width: {{percentageLost}}%;"></div>
+            <div class="bar bar-success" style="width: {{percentageWon}}%;">{{percentageWon}}%</div>
+            <div class="bar bar-danger" style="width: {{percentageLost}}%;">{{percentageLost}}%</div>
         </div>
         <dl class="dl-horizontal player-statistics">
             <dt>Rang</dt><dd class="rank">{{rank}}</dd>
