@@ -16,6 +16,11 @@ h1 {
     font-size: 24px;
     color: black;
     text-shadow: 1px 1px 7px rgba(0,0,0,0.2);
+
+    &.best-buddy,
+    &.worst-nightmare {
+      font-size: 18px;
+    }
   }
 
   dd {
@@ -32,6 +37,18 @@ h1 {
 
     &.rank {
       font-weight: normal;
+    }
+
+    &.best-buddy,
+    &.worst-nightmare {
+      a {
+        color: #f0f0f0;
+
+        &:hover {
+          color: white;
+          text-decoration: none;
+        }
+      }
     }
 
     .games-count {
