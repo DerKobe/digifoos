@@ -28,6 +28,14 @@
         {{/with}}
     </div>
 
+    {{#if teamIsFull 'black'}}
+        {{#if teamIsFull 'white'}}
+            <div id="scramble-players">
+                <button class="btn btn-danger btn-large">Scramble!!</button>
+            </div>
+        {{/if}}
+    {{/if}}
+
     <div id="player-pool">
         <table class="table">
             <tbody>

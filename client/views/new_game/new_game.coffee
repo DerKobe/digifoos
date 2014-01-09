@@ -32,6 +32,17 @@ Template.newGame.events(
     if player_id && game_id
       Games.update(game_id, { $pull: {'whiteTeam.players': {_id: player_id} } } )
       Games.update(game_id, { $pull: {'blackTeam.players': {_id: player_id} } } )
+
+  'click #scramble-players button': (event)->
+    game = Games.findOne(new: true)
+
+    playerPool = game.whiteTeam.players.concat(game.blackTeam.players)
+
+    # shuffle
+    for i in [0..Math.floor(Math.random() * 10)]
+      playerPool = playerPool.sort -> (.5 - Math.random())
+
+    Games.update(game._id, { $set: { 'whiteTeam.players': [playerPool[0],playerPool[1]], 'blackTeam.players': [playerPool[2],playerPool[3]] } } )
 )
 
 #===================================================================================
