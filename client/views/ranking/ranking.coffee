@@ -14,10 +14,17 @@ Template.ranking.helpers(
 
   gamesPlayer: ->
     @gamesWon + @gamesLost
+
+  goalsMadePerGame: ->
+    perGame @goalsMade, (@gamesWon + @gamesLost)
+
+  goalsAgainstPerGame: ->
+    perGame @goalsAgainst, (@gamesWon + @gamesLost)
 )
 
 percentage = (x,sum)->
-  if x == 0
-      0
-    else
-      Math.round(x / (sum) * 1000) / 10
+  return 0 if x == 0
+  Math.round(x / (sum) * 1000) / 10
+
+perGame = (goals,games)->
+  Math.round(goals / games * 10) / 10

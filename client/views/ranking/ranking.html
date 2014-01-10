@@ -9,8 +9,8 @@
                 <th>Spiele</th>
                 <th colspan="2">gewonnen</th>
                 <th colspan="2">verloren</th>
-                <th class="goals-made">Tore erzielt</th>
-                <th class="goals-against">Gegentore</th>
+                <th colspan="2" class="goals-made">Tore erzielt</th>
+                <th colspan="2" class="goals-against">Gegentore</th>
             </tr>
             </thead>
             <tbody>
@@ -24,8 +24,10 @@
                         <td class="won percentage">{{percentageWon}}%</td>
                         <td class="lost">{{gamesLost}}</td>
                         <td class="lost percentage">{{percentageLost}}%</td>
-                        <td class="goals-made">{{goalsMade}}</td>
-                        <td class="goals-against">{{goalsAgainst}}</td>
+                        <td class="goals-made won">{{goalsMade}}</td>
+                        <td class="goals-made won percentage">{{goalsMadePerGame}}</td>
+                        <td class="goals-against lost">{{goalsAgainst}}</td>
+                        <td class="goals-against lost percentage">{{goalsAgainstPerGame}}</td>
                     </tr>
                 {{/each}}
             </tbody>
