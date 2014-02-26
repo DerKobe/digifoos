@@ -1,16 +1,28 @@
-Template.layout.events(
-  'click .title, touchstart .title': ->
+clickTitle = _.debounce(
+  ->
     if document.location.pathname == '/new-game'
       newGame = Games.findOne({new: true}, {fields: {regularOrder: 1}})
       Games.update newGame._id, $set: { regularOrder: !newGame.regularOrder }
+
+  ,250,true
+)
+
+Template.layout.events(
+  'click .title, touchstart .title': clickTitle
+)
+
+startTheGame = _.debounce(
+  ->
+    game = Games.findOne(new: true)
+    if game? && game.whiteTeam.players.length > 0 && game.blackTeam.players.length > 0
+      Games.update(game._id, { $unset: {new: 1}, $set: {current: true}})
+      Meteor.Router.to '/current-game'
+
+  ,250, true
 )
 
 Template.newGame.events(
-  'touchstart #start-the-game, click #start-the-game': ->
-    game = Games.findOne(new: true)
-    if game? && game.whiteTeam.players.length > 0 &&  game.blackTeam.players.length > 0
-      Games.update(game._id, { $unset: {new: 1}, $set: {current: true}})
-      Meteor.Router.to '/current-game'
+  'touchstart #start-the-game, click #start-the-game': startTheGame
 
   'click button': (event)->
     event.preventDefault()
