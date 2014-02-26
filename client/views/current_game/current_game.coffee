@@ -27,7 +27,7 @@ clickVs = _.debounce(
       Games.distributePoints(game)
       Meteor.Router.to '/'
 
-,250,true
+  ,250,true
 )
 
 Template.currentGame.events(
